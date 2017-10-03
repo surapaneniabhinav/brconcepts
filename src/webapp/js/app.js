@@ -11,7 +11,8 @@ var myApp = angular.module('myApp',[
     'myApp.staffModule',
     'myApp.registerModule',
     'myApp.paymentsModule',
-    'myApp.expensesModule'
+    'myApp.expensesModule',
+    'myApp.amenitiesModule'
 ])
 
 myApp.config(['$stateProvider','$urlRouterProvider',
@@ -23,6 +24,14 @@ myApp.config(['$stateProvider','$urlRouterProvider',
                     data: {
                 requireLogin: true
               }
+            })
+            .state('amenities',{
+                url:'/amenities.html',
+                templateUrl: 'partials/amenities.tpl.html',
+                controller: 'AmenitiesController',
+                data: {
+                    requireLogin: true
+                }
             })
             .state('courses',{
                 url:'/courses.html',
