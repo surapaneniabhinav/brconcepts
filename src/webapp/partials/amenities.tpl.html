@@ -1,0 +1,67 @@
+<legend>{{headline}}</legend>
+<table class="table table-bordered table-condensed table-hover">
+    <tr>
+        <th>Id</th>
+        <th>name</th>
+        <th>Rent Cost</th>
+        <th>Paid</th>
+    </tr>
+    <tr ng-repeat="amenity in amenities">
+        <td>{{amenity.id}}</td>
+        <td>{{amenity.name}}</td>
+        <td>{{amenity.price}}</td>
+        <td>{{amenity.paid}}</td>
+    </tr>
+</table>
+<div class="toolbar-button-div pull-right">
+    <button type="button" class="btn btn-sm btn-primary" ng-click="AddAmenities()">
+        <span class="glyphicon glyphicon-plus"></span> Add Amenities
+    </button>
+</div>
+<br/>
+<br/>
+<script type="text/ng-template" id="add-amenity-modal.html">
+<div class="modal-header">
+    <div class="row">
+        <div class="col-sm-11">
+            <h3 class="modal-title">Add Amenities</h3>
+        </div>
+        <div class="col-sm-1">
+            <md-button>
+                <md-icon type="button" class="btn-sm" ng-click="cancel()">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </md-icon>
+            </md-button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-body">
+    <form name="amenityForm" class="form-horizontal" role="form">
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Amenity Name <span class="data-required">*</span> :</label>
+            <div class="col-sm-6">
+                <input type="text"  ng-model="amenity.name">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Amenity Price <span class="data-required">*</span>:</label>
+            <div class="col-sm-6">
+                <input type="number" ng-model="amenity.price">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label checkbox" >Paid</label>
+            <div class="col-sm-1">
+                <input type="checkbox" ng-model="amenity.paid">
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="addAmenity()" ng-disabled="!isInputValid()">Add</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>
+</script>
